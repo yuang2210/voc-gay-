@@ -1,63 +1,95 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-<style>
-body {
- display: flex;
- justify-content: center; 
- align-items: center;
- height: 100vh;
-}
-a {
-    text-decoration: none;
-}
-.box{font-size: 20px;
-color:blanchedalmond;
-height: 250px;
-width: 350px;
-border-radius: 10px;
-background-color: cadetblue;
-flex-direction: column;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-buttons-container {
-    display: flex;
-    justify-content: space-around;
-    height: 50px;
-    width: 150;
-}
-button{
-    height: 30px;
-    width: 50px;
-    background-color: darkcyan;
-    border-radius: 5px;
-    color: beige;
-    font-weight: 600;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .box {
+      font-size: 20px;
+      color: blanchedalmond;
+      height: 250px;
+      width: 350px;
+      border-radius: 10px;
+      background-color: cadetblue;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      position: relative;
+    }
+
+    .buttons-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 50px;
+      width: 150px;
+      gap: 12px;
+    }
+
+    button {
+      height: 30px;
+      width: 60px;
+      background-color: darkcyan;
+      border-radius: 5px;
+      color: beige;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="box"
-<p>você é gay?</p>
-<div class="buttons-container">
-    <button>
+  <div class="box">
+    <p>você é gay?</p>
+
+    <div class="buttons-container">
+      <button>
         <a href="https://www.youtube.com/shorts/-T5P7UbbzCI">sim</a>
-    </button>
-    <button id="no">não</button>
-</div>
+      </button>
+
+      <button id="no" type="button">não</button>
     </div>
+  </div>
+
+  <script>
+    const button = document.getElementById("no");
+
+    function moveButton() {
+      const padding = 10;
+      const btnW = button.offsetWidth;
+      const btnH = button.offsetHeight;
+
+      const maxX = window.innerWidth - btnW - padding;
+      const maxY = window.innerHeight - btnH - padding;
+
+      const x = Math.random() * Math.max(0, maxX);
+      const y = Math.random() * Math.max(0, maxY);
+
+      button.style.position = "fixed";
+      button.style.left = x + "px";
+      button.style.top = y + "px";
+    }
+
+    button.addEventListener("mouseover", moveButton);
+    // se quiser funcionar no celular também:
+    button.addEventListener("touchstart", moveButton);
+  </script>
 </body>
-<script>
-let button = document.getElementById('no')
-let height =window.innerHeight - 50;
-let width =window.innerWidth - 50;
-
-button.addEventListener ('mouseover', function () {
-    button.style.position = "absolute";
-    button.style.top =math.random() *height + "px";
-    button.style.left =math random() *width + "px"
-})
-
-</script>
 </html>
